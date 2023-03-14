@@ -1,0 +1,180 @@
+//Import Font
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&display=swap');
+
+//Variblies
+$Light-red: hsl(0, 100%, 67%);
+$Orangey-yellow: hsl(39, 100%, 56%);
+$Green-teal: hsl(166, 100%, 37%);
+$Cobalt-blue: hsl(234, 85%, 45%);
+$Light-slate-blue-background: hsl(252, 100%, 67%);
+$Light-royal-blue-background: hsl(241, 81%, 54%);
+$Violet-blue-circle: hsla(256, 72%, 46%, 1);
+$Persian-blue-circle: hsla(241, 72%, 46%, 0);
+$White: hsl(0, 0%, 100%);
+$Pale-blue: hsl(221, 100%, 96%);
+$Light-lavender: hsl(241, 100%, 89%);
+$Dark-gray-blue: hsl(224, 30%, 27%);
+$font-size: 18px;
+
+//Mixin 
+@mixin center(){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
+
+
+//Rules
+.center{
+    @include center();
+}
+
+body{
+    font-family: 'Hanken Grotesk', sans-serif;
+    p{
+        font-size: $font-size;
+    }
+
+    #card{
+        background-color: $Pale-blue;
+        .content{
+            background-color: $White;
+            -webkit-box-shadow: 0px 0px 10px -3px rgba(66, 68, 90, 1);
+            -moz-box-shadow: 0px 0px 10px -3px rgba(66, 68, 90, 1);
+            box-shadow: 0px 0px 10px -3px rgba(66, 68, 90, 1);
+            height: 75%;
+            .result, .summary{
+                height: 100%;
+                flex-basis: 50%;
+            }
+            .result{
+                background: linear-gradient(to left, $Light-royal-blue-background, $Light-slate-blue-background);
+                h2{
+                    color: $White;
+                    font-size: 2rem;
+                }
+                .title{
+                    color: $Light-lavender !important;
+                }
+                .perntage{
+                    width: 200px;
+                    height: 200px;
+                    background-color: $Violet-blue-circle;
+                    .num{
+                        font-size: 5rem;
+                        color: $White;
+                    }
+                    .text{
+                        color: $Light-lavender;
+                    }
+                }
+                p{
+                    color: $Light-lavender;
+                    padding: 0 7rem;
+                }
+            }
+            .summary{
+                background-color: $White;   
+                h2{
+                    color: $Dark-gray-blue;
+                }
+                ul{
+                    li{
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        span{
+                            font-size: $font-size;
+                        }
+                        .static{
+                            color: $Dark-gray-blue;
+                            .blur{
+                                color: rgba($Dark-gray-blue, 0.5);
+                            }
+                        }
+                    }
+                    .bgRed{
+                        background-color: rgba($Light-red,0.2);
+                        .iconTxt{
+                            color: $Light-red;
+                        }
+                    }
+                    .bgOrange{
+                        background-color: rgba($Orangey-yellow,0.2);
+                        .iconTxt{
+                            color: $Orangey-yellow;
+                        }
+                    }
+                    .bgGreen{
+                        background-color: rgba($Green-teal,0.2);
+                        .iconTxt{
+                            color: $Green-teal;
+                        }
+                    }
+                    .bgBlue{
+                        background-color: rgba($Cobalt-blue, 0.2);
+                        .iconTxt{
+                            color: $Cobalt-blue;
+                        }
+                    }
+                }
+                .btnMain{
+                    background-color: $Dark-gray-blue;
+                    color: $White;
+                    font-size: $font-size;
+                    outline: none;
+                    border: none;
+                    transition: all 1s;
+                    &:hover{
+                        background-color: $Light-royal-blue-background;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//Responsive For Result Part
+@media (max-width: 767px) {
+    body{
+        #card{
+            .content{
+                height: 100% !important;
+                width: 100% !important;
+                box-shadow: none;
+            }
+            .result, .summary{
+                height: 100%;
+                flex-basis: 100%;
+            }
+        }
+    }
+}
+
+@media (max-width: 1010px) and (min-width: 767px) {
+    body{
+        #card{
+            .content{
+                .result{
+                    p{
+                        padding: 0 2rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 525px) {
+    body{
+        #card{
+            .content{
+                .result{
+                    p{
+                        padding: 0;
+                    }
+                }
+            }
+        }
+    }
+}
